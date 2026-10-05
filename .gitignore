@@ -1,0 +1,16 @@
+# Dependências
+node_modules/
+
+# Dados e credenciais locais
+Backup/
+config/database.php
+*.sql.gz
+*.log
+
+# Editores e sistema operacional
+.vscode/
+.idea/
+.cursor/
+Thumbs.db
+Desktop.ini
+.DS_Store

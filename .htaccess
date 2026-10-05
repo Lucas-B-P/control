@@ -1,0 +1,6 @@
+Options -Indexes
+
+# Arquivos de projeto (README, package.json, lock, ocultos) não devem ser servidos pela web.
+<FilesMatch "\.(md|json|lock|log|sql|ini|bak)$|^\.">
+    Require all denied
+</FilesMatch>

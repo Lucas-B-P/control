@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@source "../public";
+@source "../templates";
+@source "./";
+
+@theme {
+  --color-primary: #0072C6;
+  --color-primary-hover: #005A9E;
+  --color-on-primary: #FFFFFF;
+  --color-secondary: #475569;
+  --color-on-secondary: #FFFFFF;
+  --color-accent: #0072C6;
+  --color-accent-hover: #005A9E;
+  --color-on-accent: #FFFFFF;
+  --color-background: #F5F9FD;
+  --color-foreground: #0F172A;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #0F172A;
+  --color-muted: #EEF4FA;
+  --color-muted-foreground: #475569;
+  --color-border: #DCE6F0;
+  --color-input: #C3D3E3;
+  --color-destructive: #DC2626;
+  --color-on-destructive: #FFFFFF;
+  --color-ring: #0072C6;
+
+  --font-sans: "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Figtree", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex h-10 cursor-pointer items-center justify-center gap-2 rounded-md px-4 text-sm font-semibold whitespace-nowrap transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-on-accent hover:bg-accent-hover;
+  }
+
+  .btn-dark {
+    @apply bg-primary-hover text-on-primary hover:bg-[#004A82];
+  }
+
+  .btn-secondary {
+    @apply border border-primary bg-transparent text-primary hover:bg-muted;
+  }
+
+  .btn-danger {
+    @apply bg-destructive text-on-destructive hover:bg-red-700;
+  }
+
+  .btn-danger-outline {
+    @apply border border-red-300 bg-white text-red-700 hover:bg-red-50;
+  }
+
+  .btn-sm {
+    @apply h-8 px-3 text-xs;
+  }
+
+  .selo {
+    @apply rounded bg-primary/10 px-1.5 py-0.5 text-xs font-semibold text-primary;
+  }
+
+  .tabela {
+    @apply w-full text-left text-sm;
+  }
+
+  .tabela > thead {
+    @apply border-b border-border bg-muted text-xs text-muted-foreground uppercase;
+  }
+
+  .tabela > thead > tr > th {
+    @apply px-4 py-2 font-semibold;
+  }
+
+  .pagina {
+    @apply inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-border bg-white px-2 text-sm tabular-nums transition-colors duration-150 hover:border-primary hover:text-primary;
+  }
+
+  .pagina-atual {
+    @apply border-primary bg-primary font-semibold text-white hover:text-white;
+  }
+
+  .pagina-desabilitada {
+    @apply bg-muted text-muted-foreground opacity-60 hover:border-border hover:text-muted-foreground;
+  }
+
+  .input {
+    @apply h-10 w-full rounded-md border border-input bg-white px-3 text-base text-foreground transition-colors duration-150 placeholder:text-slate-500 disabled:cursor-not-allowed disabled:bg-muted focus-visible:border-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  }
+
+  textarea.input {
+    @apply h-auto py-2;
+  }
+
+  .label {
+    @apply mb-1 block text-sm font-medium text-foreground;
+  }
+
+  .card {
+    @apply rounded-lg border border-border bg-card text-card-foreground;
+  }
+
+  .link {
+    @apply font-medium text-primary underline-offset-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  }
+
+  .texto-formatado {
+    @apply space-y-3 text-sm leading-relaxed;
+  }
+
+  .texto-formatado h3 {
+    @apply pt-1 text-base font-semibold text-foreground;
+  }
+
+  .texto-formatado ul {
+    @apply list-disc space-y-1 pl-5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

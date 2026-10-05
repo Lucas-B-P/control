@@ -1,0 +1,16 @@
+{
+  "name": "control",
+  "private": true,
+  "description": "Sistema de rastreio de manutenção - setor de Hardware",
+  "scripts": {
+    "build": "npm run vendor && npm run build:css",
+    "build:css": "tailwindcss -i ./src/input.css -o ./public/assets/app.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./public/assets/app.css --watch",
+    "vendor": "node -e \"require('fs').mkdirSync('public/assets/vendor',{recursive:true});require('fs').copyFileSync('node_modules/jsbarcode/dist/JsBarcode.all.min.js','public/assets/vendor/JsBarcode.all.min.js')\""
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "jsbarcode": "^3.12.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
